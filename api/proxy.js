@@ -1,4 +1,6 @@
-const fetch = import('node-fetch');
+// api/proxy.js
+
+const fetch = await import('node-fetch');
 
 module.exports = async (req, res) => {
     // 从请求中获取要代理的目标URL
