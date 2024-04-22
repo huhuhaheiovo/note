@@ -1,4 +1,4 @@
-const fetch = require('node-fetch');
+const fetch = import('node-fetch');
 
 module.exports = async (req, res) => {
     // 从请求中获取要代理的目标URL
