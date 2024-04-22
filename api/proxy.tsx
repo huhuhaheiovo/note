@@ -1,10 +1,9 @@
-// api/proxy.js
+import { VercelRequest, VercelResponse } from '@vercel/node';
+import fetch from 'node-fetch';
 
-const fetch = require('node-fetch');
-
-module.exports = async (req, res) => {
+export default async function handler(req: VercelRequest, res: VercelResponse) {
     // 从请求中获取要代理的目标URL
-    const targetUrl = req.query.url;
+    const targetUrl = req.query.url as string;
 
     try {
         // 使用 fetch 函数代理请求到目标URL，并获取响应
@@ -24,4 +23,4 @@ module.exports = async (req, res) => {
         console.error('Error while proxying request:', error);
         res.status(500).send('Internal Server Error');
     }
-};
+}
