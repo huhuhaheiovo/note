@@ -5,12 +5,8 @@ module.exports = async (req, res) => {
     // After
     let fetch;
             await (async () => {
-                try {
                     const module = await import('node-fetch');
                     fetch = module.default;
-                } catch (error) {
-                    console.error('Dynamic import failed:', error);
-                }
             })();
     // 从请求中获取要代理的目标URL
     const targetUrl = req.query.url;
