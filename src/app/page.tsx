@@ -1,7 +1,8 @@
 "use client";
-import { Dialog, Popover, Tab, Transition } from "@headlessui/react"
-import { Bars3Icon, MagnifyingGlassIcon, ShoppingBagIcon, UserIcon, XMarkIcon } from "@heroicons/react/24/outline"
+import {Dialog, Popover, Tab, Transition} from "@headlessui/react"
+import {Bars3Icon, MagnifyingGlassIcon, ShoppingBagIcon, UserIcon, XMarkIcon} from "@heroicons/react/24/outline"
 import {Fragment, useState} from "react";
+import {orders} from "@/app/orders";
 
 const navigation = {
   categories: [
@@ -188,49 +189,6 @@ const navigation = {
     { name: 'Stores', href: '#' },
   ],
 }
-const orders = [
-  {
-    id: 1,
-    date: 'July 12, 2021',
-    datetime: '2021-07-12',
-    status: 'out-for-delivery',
-    productName: 'The Fool',
-    href: '#',
-    imageSrc: '/tarot/The_Fool.jpg',
-    imageAlt: 'Black fabric shoe bag with zipper around 3 sides, holding pair of white sneakers.',
-  },
-  {
-    id: 2,
-    date: 'June 21, 2021',
-    datetime: '2021-06-21',
-    status: 'delivered',
-    productName: 'The Magician',
-    href: '#',
-    imageSrc: '/tarot/the-magician.jpg',
-    imageAlt: 'Light grey canvas backpack with black handle, zipper, and edge details.',
-  },
-  {
-    id: 3,
-    date: 'June 6, 2021',
-    datetime: '2021-06-06',
-    status: 'cancelled',
-    productName: 'Drawtop Canister',
-    href: '#',
-    imageSrc: 'https://tailwindui.starxg.com/img/ecommerce-images/order-history-page-05-product-03.jpg',
-    imageAlt: 'Orange canvas cylindrical bag with drawstring top, front zipper pouch, and black shoulder strap.',
-  },
-  {
-    id: 4,
-    date: 'May 24, 2021',
-    datetime: '2021-05-24',
-    status: 'delivered',
-    productName: 'High Wall Tote',
-    href: '#',
-    imageSrc: 'https://tailwindui.starxg.com/img/ecommerce-images/order-history-page-05-product-04.jpg',
-    imageAlt: 'White canvas tote bag with black drawstring liner and white handle.',
-  },
-  // More orders...
-]
 const footerNavigation = {
   products: [
     { name: 'Bags', href: '#' },
@@ -630,15 +588,7 @@ export default function Home() {
                     </a>
                   </h3>
                   <p className="mt-1 text-lg font-medium">
-                    {order.status === 'delivered' ? (
-                        <span className="text-gray-900">
-                    Delivered on <time dateTime={order.datetime}>{order.date}</time>
-                  </span>
-                    ) : order.status === 'out-for-delivery' ? (
-                        <span className="text-indigo-600">Out for delivery</span>
-                    ) : order.status === 'cancelled' ? (
-                        <span className="text-gray-500">Cancelled</span>
-                    ) : null}
+                    <span className="text-indigo-600">{order.status}</span>
                   </p>
                 </div>
             ))}
