@@ -3,6 +3,7 @@ import {Dialog, Popover, Tab, Transition} from "@headlessui/react"
 import {Bars3Icon, MagnifyingGlassIcon, ShoppingBagIcon, UserIcon, XMarkIcon} from "@heroicons/react/24/outline"
 import {Fragment, useState} from "react";
 import {orders} from "@/app/orders";
+import {wands} from "@/app/wands";
 
 const navigation = {
   categories: [
@@ -568,7 +569,7 @@ export default function Home() {
               塔罗牌共有七十八张，包括二十二张大阿尔克纳（Major arcana，又称大密仪），简称大牌。
             </p>
             <p className="mt-2 text-sm text-gray-500">
-             五十六张小阿尔克纳（Minor arcana，又称小密仪），简称小牌。
+              五十六张小阿尔克纳（Minor arcana，又称小密仪），简称小牌。
             </p>
             <p className="mt-2 text-sm text-gray-500">
               小牌又细分为权杖、圣杯、宝剑、钱币四个牌组，每个牌组各有十张数字牌和四张宫廷牌
@@ -579,7 +580,7 @@ export default function Home() {
             {orders.map((order) => (
                 <div key={order.id} className="group relative">
                   <div className="aspect-h-2 aspect-w-1 overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75">
-                    <img src={order.imageSrc} alt={order.imageAlt}   style={{ width: '220px', height: '350px' }}    className="object-cover object-center"/>
+                    <img src={order.imageSrc} alt={order.imageAlt} style={{width: '220px', height: '350px'}} className="object-cover object-center"/>
                   </div>
                   <h3 className="mt-4 text-sm text-gray-500">
                     <a href={order.href}>
@@ -593,6 +594,27 @@ export default function Home() {
                 </div>
             ))}
           </div>
+
+
+          <div className="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:grid-cols-3 lg:gap-x-8 xl:grid-cols-5">
+            {wands.map((order) => (
+                <div key={order.id} className="group relative">
+                  <div className="aspect-h-2 aspect-w-1 overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75">
+                    <img src={order.imageSrc} alt={order.imageAlt} style={{width: '220px', height: '350px'}} className="object-cover object-center"/>
+                  </div>
+                  <h3 className="mt-4 text-sm text-gray-500">
+                    <a href={order.href}>
+                      <span className="absolute inset-0"/>
+                      {order.productName}
+                    </a>
+                  </h3>
+                  <p className="mt-1 text-lg font-medium">
+                    <span className="text-indigo-600">{order.status}</span>
+                  </p>
+                </div>
+            ))}
+          </div>
+
         </main>
 
         <footer aria-labelledby="footer-heading" className="bg-gray-50">
