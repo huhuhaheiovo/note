@@ -4,6 +4,7 @@ import {Bars3Icon, MagnifyingGlassIcon, ShoppingBagIcon, UserIcon, XMarkIcon} fr
 import {Fragment, useState} from "react";
 import {orders} from "@/app/orders";
 import {wands} from "@/app/wands";
+import {cups} from "@/app/cups";
 
 const navigation = {
   categories: [
@@ -615,6 +616,25 @@ export default function Home() {
             ))}
           </div>
 
+
+          <div className="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:grid-cols-3 lg:gap-x-8 xl:grid-cols-5">
+            {cups.map((order) => (
+                <div key={order.id} className="group relative">
+                  <div className="aspect-h-2 aspect-w-1 overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75">
+                    <img src={order.imageSrc} alt={order.imageAlt} style={{width: '220px', height: '350px'}} className="object-cover object-center"/>
+                  </div>
+                  <h3 className="mt-4 text-sm text-gray-500">
+                    <a href={order.href}>
+                      <span className="absolute inset-0"/>
+                      {order.productName}
+                    </a>
+                  </h3>
+                  <p className="mt-1 text-lg font-medium">
+                    <span className="text-indigo-600">{order.status}</span>
+                  </p>
+                </div>
+            ))}
+          </div>
         </main>
 
         <footer aria-labelledby="footer-heading" className="bg-gray-50">
